@@ -1,0 +1,30 @@
+﻿@model CrudSample.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Client Details</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <h3>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name):
+            </dt>
+        </h3>
+
+        <h3>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+        </h3>
+
+    </dl>
+</div>
+<p>
+    <button onclick="location.href='@Url.Action("Edit", "Client", new { id = Model.ClientId })';return false;">Edit Details</button>
+
+    <button onclick="location.href='@Url.Action("Index", "Client")';return false;">Back To List</button>
+</p>

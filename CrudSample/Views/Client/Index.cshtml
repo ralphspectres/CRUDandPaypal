@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CrudSample.Models.Client>
+
+@{
+    ViewBag.Title = "Client List";
+}
+
+<h2>List of Clients</h2>
+
+<p>
+    <button onclick="location.href='@Url.Action("Create", "Client")';return false;">Add a Client</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="location.href='@Url.Action("Index", "Employee")';return false;">View Employees</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            <button onclick="location.href='@Url.Action("Edit", "Client", new { id = item.ClientId })';return false;">Edit Details</button>
+            <button onclick="location.href='@Url.Action("Details", "Client", new { id = item.ClientId })';return false;">View Details</button>
+            <button onclick="location.href='@Url.Action("Delete", "Client", new { id = item.ClientId })';return false;">Delete Client</button>
+        </td>
+    </tr>
+}
+
+</table>
